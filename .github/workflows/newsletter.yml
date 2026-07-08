@@ -1,0 +1,41 @@
+name: Fetch Newsletter Source Data
+
+on:
+  schedule:
+    # Every Monday at 13:00 UTC. Adjust as you like: https://crontab.guru
+    - cron: "0 13 * * 1"
+  workflow_dispatch: {}  # lets you trigger it manually from the Actions tab
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  build-newsletter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch source content
+        run: python fetch.py
+
+      - name: Open PR with aggregated data
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "Aggregate data for ${{ github.run_id }}"
+          title: "Aggregated source data - ${{ github.run_id }}"
+          body: |
+            Auto-generated `aggregate.json` from this cycle's sources
+            (meeting notes + release notes). Review, then feed it into the
+            newsletter generation step of your choice.
+          branch: "aggregate-${{ github.run_number }}"
+          add-paths: aggregate.json

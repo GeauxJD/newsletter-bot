@@ -1,0 +1,161 @@
+# Generated from OpenSSF_Technical_Initiatives PDF.
+# Google Doc export links converted to /export?format=txt (from /edit).
+# GitHub links converted to owner/repo for the releases API.
+#
+# 5 links in the source PDF pointed to GitHub ORGS, not specific repos,
+# so they can't be auto-converted to a releases feed. Fill in the repo
+# name once you've checked each org page, then uncomment:
+#   - name: "Gemara"
+#     owner: "gemaraproj"
+#     repo: "CHANGE_ME"
+#     max_releases: 3
+#   - name: "OpenVEX"
+#     owner: "openvex"
+#     repo: "CHANGE_ME"
+#     max_releases: 3
+#   - name: "SBOMit"
+#     owner: "sbomit"
+#     repo: "CHANGE_ME"
+#     max_releases: 3
+#   - name: "Secure Agentic Framework"
+#     owner: "secure-agentic-framework"
+#     repo: "CHANGE_ME"
+#     max_releases: 3
+#   - name: "Sigstore (org)"
+#     owner: "sigstore"
+#     repo: "CHANGE_ME"
+#     max_releases: 3
+
+google_docs:
+  - name: "Global Cyber Policy WG Bi-Weekly Meeting Notes"
+    doc_id: "1iAplSQheMgemdMnEw74uPj3oi_6rLLbFFXhg4svqIDo"
+  - name: "OpenSSF WG for AI/ML Meeting Notes"
+    doc_id: "1UOEQw2eR1LhdTfIIGAbv5hRb_piRAzvHRGAZYQV0N3I"
+  - name: "Vuln Disclosure WG Notes"
+    doc_id: "11JMM5w2tBQugbRQIbgq6TX76TjZj2d9eCcUK3dR03V4"
+  - name: "Supply Chain Integrity WG Notes"
+    doc_id: "1moVFPn5pLi-uGs840_YBCrwdpHajU0ptFmlL4F9GryQ"
+  - name: "Securing Software Repositories WG Notes"
+    doc_id: "18Y8HxntL2RkcgqoFdhdLpj17e4MOSCdskP1IoDiuP1s"
+  - name: "ORBIT WG Bi-weekly Meeting Notes"
+    doc_id: "1Hf-SsjYaAvY2Nk_jJ2-aHMqgBi1qg7oIj3PJWsCEe0U"
+  - name: "BEST Practices WG Notes"
+    doc_id: "1b2yGx6sVONsxMW8bdHhfBFCX2WbmaqvIDuWmKfiLgRo"
+  - name: "BEAR WG Meeting Notes"
+    doc_id: "1ABnvIZ8zUg-AK4HJ-jQjBYOK8BS2I9ZAVCdUJCw5afQ"
+  - name: "Cyber Reasoning Systems SIG Meeting Notes"
+    doc_id: "14ibgD9qqRZa9INzJz8EsvO-q4An2CziU2mbLGVuDIgE"
+  - name: "Secure Agentic Framework SIG Meeting Notes"
+    doc_id: "1Ww6m32mQbHM-WJxXhQ1IE4btvCR7Jd319YO-rtv3Uc4"
+  - name: "E2E Model Provenance SIG Meeting Notes"
+    doc_id: "146N_FQqrMf6TkrniF8LmqEVzp-LmdSV5z-JfKgevp48"
+  - name: "EU Cyberpolicy Standardization SIG Meeting Notes"
+    doc_id: "1XjE5VYdyIdH32T94ZQIj0Hf5btRiKG58z3jSInY77wA"
+  - name: "EU CRA Monthly Tech Talk Meeting Notes"
+    doc_id: "1PU1qL7rDY1Gc-qOY16JoWb_eCf5H4N2IXJt0CFqZoFE"
+  - name: "ORBIT Launchpad SIG Meeting Notes"
+    doc_id: "1HIe6ftj18YldRy55BsPbgTj0Za2duCck0W4dZAw1sGw"
+  - name: "EDU.SIG Meeting Notes"
+    doc_id: "1th8joOtmQa3y9KNlH-QBcYADMEHtCynSYwRR1r_WB6Q"
+  - name: "Security Baseline SIG Meeting Notes"
+    doc_id: "16tL1Ln7owIRXSoCKgyYHCs9-JP9iw-ouyk8koGAeHA0"
+  - name: "SBOM Coffee Club Meeting Notes"
+    doc_id: "1aio7P-1PoumfQhMOHQ4gcei9qqUz_RYRvG1MmHpau_k"
+  - name: "VEX SIG Meeting Notes"
+    doc_id: "1AIL5FFbEXzVMTc0ygEFEJ7aR7EhDuBKDWinpzsCKHDA"
+  - name: "Model Signing Project Notes"
+    doc_id: "1L3ZEIN3mHNORB9xBw0yuVUe6T_yrlumnXK5_iIw3wkk"
+  - name: "TAC Meeting Notes"
+    doc_id: "15cW5oqu5Jp1iRdDNIrcUnD5gcoKxPKkJ0bc9qjzf5h0"
+  - name: "Gemara Bi-Weekly Meeting Notes"
+    doc_id: "1Yi0dt-IC7rcIaja8d1gKj0m2ifbcIIbizA84JnLdKp4"
+  - name: "GUAC Maintainers Meeting Notes"
+    doc_id: "1bjkxGu1YcMurav5DU-imoKfEN2j-LuNQJFOa__A-m0I"
+  - name: "Minder Project Meeting Notes"
+    doc_id: "1cLij5Z5YFrSGlseEjC9-_jde6RbJLQzUsZYu8pZbclI"
+  - name: "Sigstore Community Meeting Notes"
+    doc_id: "1bsl-Y0KulSD7O_nTekad1sAKOVRb80wyGb-Q5x-zdg0"
+  - name: "SLSA Specification Meeting Notes"
+    doc_id: "1PwhekVB1iDpcgCQRNVN_aesoVdOiTruoebCs896aGxw"
+  - name: "Zarf Community Meeting Notes"
+    doc_id: "1F-pkPmg5nL9g23mqfd5crwATRtl31BCYCd-2hCyCUcI"
+  - name: "OpenBao Community Call Notes"
+    doc_id: "1HZOjDpm0i2fD-W26FkmMQQStVYFgX3evP-nMpgiGmsA"
+
+github_repos:
+  - name: "AMPEL"
+    owner: "carabiner-dev"
+    repo: "ampel"
+    max_releases: 3
+  - name: "Best Practices Badge"
+    owner: "ossf"
+    repo: "best-practices-badge"
+    max_releases: 3
+  - name: "Bomctl"
+    owner: "bomctl"
+    repo: "bomctl"
+    max_releases: 3
+  - name: "darnit"
+    owner: "kusari-oss"
+    repo: "darnit"
+    max_releases: 3
+  - name: "Fuzz Introspector"
+    owner: "ossf"
+    repo: "fuzz-introspector"
+    max_releases: 3
+  - name: "GUAC"
+    owner: "guacsec"
+    repo: "guac"
+    max_releases: 3
+  - name: "gittuf"
+    owner: "gittuf"
+    repo: "gittuf"
+    max_releases: 3
+  - name: "OpenSSF Scorecard"
+    owner: "ossf"
+    repo: "scorecard"
+    max_releases: 3
+  - name: "OSV Schema"
+    owner: "ossf"
+    repo: "osv-schema"
+    max_releases: 3
+  - name: "Malicious Packages"
+    owner: "ossf"
+    repo: "malicious-packages"
+    max_releases: 3
+  - name: "Minder"
+    owner: "mindersec"
+    repo: "minder"
+    max_releases: 3
+  - name: "Model Signing"
+    owner: "sigstore"
+    repo: "model-transparency"
+    max_releases: 3
+  - name: "Package Analysis"
+    owner: "ossf"
+    repo: "package-analysis"
+    max_releases: 3
+  - name: "Protobom"
+    owner: "protobom"
+    repo: "protobom"
+    max_releases: 3
+  - name: "RSTUF"
+    owner: "repository-service-tuf"
+    repo: "repository-service-tuf"
+    max_releases: 3
+  - name: "Security Insights"
+    owner: "ossf"
+    repo: "security-insights-spec"
+    max_releases: 3
+  - name: "SLSA"
+    owner: "slsa-framework"
+    repo: "slsa"
+    max_releases: 3
+  - name: "Zarf"
+    owner: "zarf-dev"
+    repo: "zarf"
+    max_releases: 3
+  - name: "OpenBao"
+    owner: "openbao"
+    repo: "openbao"
+    max_releases: 3
