@@ -9,12 +9,87 @@ import json
 import re
 import sys
 import time
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 import requests
 import yaml
+from dateutil import parser as dateparser
 
 MIN_DOC_LENGTH = 50  # a "successful" fetch shorter than this is treated as a failure
+MEETING_WINDOW_DAYS = 21  # only keep meeting sections dated within this many days
+
+# Matches a date at the start of a line, in any of the formats these docs use:
+# ISO (2026-07-06), M-D-YYYY (7-01-2026), MM/DD/YYYY (07/07/2026),
+# "Month D, YYYY" (July 8, 2026 / Jul 7, 2026), "D Month YYYY" (2 Jul 2026).
+# An optional leading bullet/asterisk and "<" (for template markers) are allowed.
+DATE_LINE = re.compile(
+    r'^\s*[\*\-•]?\s*(?:<\s*)?('
+    r'\d{4}-\d{2}-\d{2}'
+    r'|\d{1,2}-\d{1,2}-\d{4}'
+    r'|\d{1,2}/\d{1,2}/\d{4}'
+    r'|(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2},?\s+\d{4}'
+    r'|\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{4}'
+    r')',
+    re.IGNORECASE,
+)
+
+
+def _parse_date(token: str):
+    try:
+        return dateparser.parse(token, dayfirst=False, yearfirst=False).date()
+    except (ValueError, OverflowError):
+        return None
+
+
+def trim_to_recent_meetings(text: str, days: int = MEETING_WINDOW_DAYS) -> str:
+    """
+    Google Docs meeting-note pages are typically one long running log, with
+    each meeting's notes starting at a dated line and running until the next
+    dated line. This keeps only sections dated within the last `days` days,
+    drops anything under a "<TEMPLATE>" marker, and strips attendee tables
+    (the "Attendees ... Agenda" block, which is just noisy name/email/
+    affiliation rows once exported to plain text) from what's kept.
+
+    This is a best-effort heuristic, not a real parser - Google Docs export
+    to plain text loses all table/heading structure, so date formats and
+    section boundaries have to be detected from the raw text. If a doc uses
+    a date format not covered here, its content is left untouched rather
+    than silently dropped.
+    """
+    today = datetime.now(timezone.utc).date()
+    cutoff = today - timedelta(days=days)
+
+    lines = text.split('\r\n') if '\r\n' in text else text.split('\n')
+
+    boundaries = []  # (line_index, date_or_None, is_template)
+    for i, line in enumerate(lines):
+        m = DATE_LINE.match(line)
+        if m:
+            is_template = 'TEMPLATE' in line.upper()
+            d = None if is_template else _parse_date(m.group(1))
+            boundaries.append((i, d, is_template))
+
+    if not boundaries:
+        # No recognizable dated sections - don't guess, just pass it through.
+        return text
+
+    kept_chunks = []
+    for idx, (start, date, is_template) in enumerate(boundaries):
+        end = boundaries[idx + 1][0] if idx + 1 < len(boundaries) else len(lines)
+        if is_template or date is None or date < cutoff:
+            continue
+        chunk = '\n'.join(lines[start:end])
+        chunk = re.sub(
+            r'Attendees\b.*?(?=\bAgenda\b)',
+            'Attendees: (list omitted for brevity)\n\n',
+            chunk, count=1, flags=re.DOTALL | re.IGNORECASE,
+        )
+        kept_chunks.append(chunk)
+
+    if not kept_chunks:
+        return f'(no meetings logged in the past {days} days)'
+
+    return '\n\n---\n\n'.join(kept_chunks)
 
 
 def fetch_google_doc(doc_id: str, retries: int = 4, timeout: int = 45) -> str:
@@ -85,6 +160,7 @@ def build_aggregate(config: dict) -> list:
     for src in config.get("google_docs", []):
         try:
             content = fetch_google_doc(src["doc_id"])
+            content = trim_to_recent_meetings(content)
             aggregate.append({
                 "source_type": "meeting_notes",
                 "source_name": src["name"],
