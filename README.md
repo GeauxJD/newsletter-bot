@@ -21,8 +21,9 @@ via GitHub Actions and opens a PR with the draft for human review.
   retries flaky requests, and fails loudly (rather than silently) if a
   source can't be fetched or comes back suspiciously empty.
 - The workflow runs on a schedule (weekly by default), fetches everything,
-  and opens a PR containing the resulting `aggregate.json` for review.
-  Merge the PR to accept the run's data, or close it to discard.
+  and uploads the resulting `aggregate.json` as a workflow artifact
+  (kept for 90 days). Download it from the Actions tab: click into the
+  run, and you'll find it under "Artifacts" at the bottom of the page.
 
 ## Generating the newsletter itself
 
