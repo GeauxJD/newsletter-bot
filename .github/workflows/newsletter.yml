@@ -7,8 +7,7 @@ on:
   workflow_dispatch: {}  # lets you trigger it manually from the Actions tab
 
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
 
 jobs:
   build-newsletter:
@@ -28,14 +27,9 @@ jobs:
       - name: Fetch source content
         run: python fetch.py
 
-      - name: Open PR with aggregated data
-        uses: peter-evans/create-pull-request@v6
+      - name: Upload aggregated data as artifact
+        uses: actions/upload-artifact@v4
         with:
-          commit-message: "Aggregate data for ${{ github.run_id }}"
-          title: "Aggregated source data - ${{ github.run_id }}"
-          body: |
-            Auto-generated `aggregate.json` from this cycle's sources
-            (meeting notes + release notes). Review, then feed it into the
-            newsletter generation step of your choice.
-          branch: "aggregate-${{ github.run_number }}"
-          add-paths: aggregate.json
+          name: aggregate-${{ github.run_number }}
+          path: aggregate.json
+          retention-days: 90
