@@ -1,8 +1,7 @@
 # Newsletter Bot
 
 Fetches meeting notes (public Google Docs) and release notes (GitHub repos),
-then drafts a community newsletter with Claude. Runs on a weekly schedule
-via GitHub Actions and opens a PR with the draft for human review.
+and compiles into a single file which can be fed to a robot tool to generate a community newsletter. Runs on a weekly schedule via GitHub Actions and supplies a json file artifact.
 
 ## Setup
 
@@ -17,9 +16,7 @@ via GitHub Actions and opens a PR with the draft for human review.
 
 ## How it works
 
-- `fetch.py` — pulls raw content from every source in `sources.yml`,
-  retries flaky requests, and fails loudly (rather than silently) if a
-  source can't be fetched or comes back suspiciously empty.
+- `fetch.py` — pulls raw content from every source in `sources.yml`.
 - The workflow runs on a schedule (weekly by default), fetches everything,
   and uploads the resulting `aggregate.json` as a workflow artifact
   (kept for 90 days). Download it from the Actions tab: click into the
@@ -37,7 +34,7 @@ actual newsletter draft is a separate step, done however you prefer:
   a downloaded `aggregate.json`, or wire it into a second scheduled
   workflow that runs after the fetch PR is merged.
 - Alternatively, just paste `aggregate.json`'s contents into a chat with
-  Claude (or any model) and ask it to draft the newsletter — no automation
+  an LLM and ask it to draft the newsletter — no automation
   required.
 
 ## Notes on Google Docs
@@ -46,5 +43,3 @@ Only works for docs shared as "Anyone with the link can view." The export
 endpoint has occasionally been observed to be flaky for some networks/ISPs
 (returns empty on the first try) — `fetch.py` retries automatically and
 rejects suspiciously short responses rather than treating them as success.
-Running this in GitHub Actions (rather than a home network) avoids that
-class of problem entirely, since it runs from GitHub's own infrastructure.
