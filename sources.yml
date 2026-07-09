@@ -1,31 +1,3 @@
-# Generated from OpenSSF_Technical_Initiatives PDF.
-# Google Doc export links converted to /export?format=txt (from /edit).
-# GitHub links converted to owner/repo for the releases API.
-#
-# 5 links in the source PDF pointed to GitHub ORGS, not specific repos,
-# so they can't be auto-converted to a releases feed. Fill in the repo
-# name once you've checked each org page, then uncomment:
-#   - name: "Gemara"
-#     owner: "gemaraproj"
-#     repo: "CHANGE_ME"
-#     max_releases: 3
-#   - name: "OpenVEX"
-#     owner: "openvex"
-#     repo: "CHANGE_ME"
-#     max_releases: 3
-#   - name: "SBOMit"
-#     owner: "sbomit"
-#     repo: "CHANGE_ME"
-#     max_releases: 3
-#   - name: "Secure Agentic Framework"
-#     owner: "secure-agentic-framework"
-#     repo: "CHANGE_ME"
-#     max_releases: 3
-#   - name: "Sigstore (org)"
-#     owner: "sigstore"
-#     repo: "CHANGE_ME"
-#     max_releases: 3
-
 google_docs:
   - name: "Global Cyber Policy WG Bi-Weekly Meeting Notes"
     doc_id: "1iAplSQheMgemdMnEw74uPj3oi_6rLLbFFXhg4svqIDo"
@@ -159,3 +131,47 @@ github_repos:
     owner: "openbao"
     repo: "openbao"
     max_releases: 3
+   - name: "Gemara"
+     owner: "gemaraproj"
+     repo: "gemara"
+     max_releases: 3
+   - name: "OpenVEX"
+     owner: "openvex"
+     repo: "spec"
+     max_releases: 3
+   - name: "OpenVEX"
+     owner: "openvex"
+     repo: "go-vex"
+     max_releases: 3
+   - name: "OpenVEX"
+     owner: "openvex"
+     repo: "vexctl"
+     max_releases: 3
+   - name: "Sigstore (org)"
+     owner: "sigstore"
+     repo: "cosign"
+     max_releases: 3
+   - name: "Sigstore (org)"
+     owner: "sigstore"
+     repo: "cosign"
+     max_releases: 3
+   - name: "Sigstore (org)"
+     owner: "sigstore"
+     repo: "rekor"
+     max_releases: 3
+   - name: "Sigstore (org)"
+     owner: "sigstore"
+     repo: "fulcio"
+     max_releases: 3
+   - name: "Sigstore (org)"
+     owner: "sigstore"
+     repo: "sigstore-python"
+     max_releases: 3
+   - name: "Sigstore (org)"
+     owner: "sigstore"
+     repo: "sigstore-java"
+     max_releases: 3
+   - name: "Sigstore (org)"
+     owner: "sigstore"
+     repo: "sigstore-rust"
+     max_releases: 3
