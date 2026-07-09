@@ -131,47 +131,47 @@ github_repos:
     owner: "openbao"
     repo: "openbao"
     max_releases: 3
-   - name: "Gemara"
-     owner: "gemaraproj"
-     repo: "gemara"
-     max_releases: 3
-   - name: "OpenVEX"
-     owner: "openvex"
-     repo: "spec"
-     max_releases: 3
-   - name: "OpenVEX"
-     owner: "openvex"
-     repo: "go-vex"
-     max_releases: 3
-   - name: "OpenVEX"
-     owner: "openvex"
-     repo: "vexctl"
-     max_releases: 3
-   - name: "Sigstore (org)"
-     owner: "sigstore"
-     repo: "cosign"
-     max_releases: 3
-   - name: "Sigstore (org)"
-     owner: "sigstore"
-     repo: "cosign"
-     max_releases: 3
-   - name: "Sigstore (org)"
-     owner: "sigstore"
-     repo: "rekor"
-     max_releases: 3
-   - name: "Sigstore (org)"
-     owner: "sigstore"
-     repo: "fulcio"
-     max_releases: 3
-   - name: "Sigstore (org)"
-     owner: "sigstore"
-     repo: "sigstore-python"
-     max_releases: 3
-   - name: "Sigstore (org)"
-     owner: "sigstore"
-     repo: "sigstore-java"
-     max_releases: 3
-   - name: "Sigstore (org)"
-     owner: "sigstore"
-     repo: "sigstore-rust"
-     max_releases: 3
+  - name: "Gemara"
+    owner: "gemaraproj"
+    repo: "gemara"
+    max_releases: 3
+  - name: "OpenVEX"
+    owner: "openvex"
+    repo: "spec"
+    max_releases: 3
+  - name: "OpenVEX"
+    owner: "openvex"
+    repo: "go-vex"
+    max_releases: 3
+  - name: "OpenVEX"
+    owner: "openvex"
+    repo: "vexctl"
+    max_releases: 3
+  - name: "Sigstore (org)"
+    owner: "sigstore"
+    repo: "cosign"
+    max_releases: 3
+  - name: "Sigstore (org)"
+    owner: "sigstore"
+    repo: "cosign"
+    max_releases: 3
+  - name: "Sigstore (org)"
+    owner: "sigstore"
+    repo: "rekor"
+    max_releases: 3
+  - name: "Sigstore (org)"
+    owner: "sigstore"
+    repo: "fulcio"
+    max_releases: 3
+  - name: "Sigstore (org)"
+    owner: "sigstore"
+    repo: "sigstore-python"
+    max_releases: 3
+  - name: "Sigstore (org)"
+    owner: "sigstore"
+    repo: "sigstore-java"
+    max_releases: 3
+  - name: "Sigstore (org)"
+    owner: "sigstore"
+    repo: "sigstore-rust"
+    max_releases: 3
